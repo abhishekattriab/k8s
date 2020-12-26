@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx-deployment
+  labels:
+    type: learn-po
+spec:
+  template:
+    metadata:
+      name: rc-nginx-po
+      labels:
+        type: learn-po
+        color: blue
+    spec:
+      containers:
+        - image: nginx
+          name: nginx-deployment-container    
+  replicas: 2
+  selector:
+    matchLabels:
+      type: learn-po
+      color: blue
+          
